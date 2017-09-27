@@ -3,6 +3,7 @@ package com.bignerdranch.android.geoquiz;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -21,7 +22,9 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Context context = getApplicationContext();
-                Toast.makeText(context, R.string.correct_toast, Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(context, R.string.correct_toast, Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.TOP, 0, 200);
+                toast.show();
             }
         });
 
@@ -30,7 +33,9 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Context context = getApplicationContext();
-                Toast.makeText(context, R.string.incorrect_toast, Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(context, R.string.incorrect_toast, Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.TOP, 0, 200);
+                toast.show();
             }
         });
     }
