@@ -23,7 +23,7 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Context context = getApplicationContext();
                 Toast toast = Toast.makeText(context, R.string.correct_toast, Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.TOP, 0, 210);
+                toast.setGravity(Gravity.TOP, 0, 220);
                 toast.show();
             }
         });
@@ -34,7 +34,7 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Context context = getApplicationContext();
                 Toast toast = Toast.makeText(context, R.string.incorrect_toast, Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.TOP, 0, 210);
+                toast.setGravity(Gravity.TOP, 0, 220);
                 toast.show();
             }
         });
