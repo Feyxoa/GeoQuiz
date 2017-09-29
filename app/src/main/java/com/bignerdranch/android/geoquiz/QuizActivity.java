@@ -1,8 +1,8 @@
 package com.bignerdranch.android.geoquiz;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -35,10 +35,7 @@ public class QuizActivity extends AppCompatActivity {
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Context context = getApplicationContext();
-                Toast toast = Toast.makeText(context, R.string.correct_toast, Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.TOP, 0, 220);
-                toast.show();
+                checkAnswer(true);
             }
         });
 
@@ -46,10 +43,7 @@ public class QuizActivity extends AppCompatActivity {
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Context context = getApplicationContext();
-                Toast toast = Toast.makeText(context, R.string.incorrect_toast, Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.TOP, 0, 220);
-                toast.show();
+                checkAnswer(false);
             }
         });
 
@@ -67,5 +61,19 @@ public class QuizActivity extends AppCompatActivity {
     private void updateQuestion() {
         int question = mQuestionBank[mCurrentIndex].getTextResId();
         mQuestionTextView.setText(question);
+    }
+
+    private void checkAnswer(boolean userPressedTrue) {
+        boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
+        int messageResId;
+        if (userPressedTrue == answerIsTrue) {
+            messageResId = R.string.correct_toast;
+        } else {
+            messageResId = R.string.incorrect_toast;
+        }
+        Context context = getApplicationContext();
+        Toast toast = Toast.makeText(context, messageResId, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.TOP, 0, 220);
+        toast.show();
     }
 }
