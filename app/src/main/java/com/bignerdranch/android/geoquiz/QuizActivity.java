@@ -66,7 +66,7 @@ public class QuizActivity extends AppCompatActivity {
                     mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
                     updateQuestion();
                 }
-                Toast.makeText(QuizActivity.this, "This is the 1st question", Toast.LENGTH_SHORT);
+                Toast.makeText(QuizActivity.this, "This is the 1st question", Toast.LENGTH_SHORT).show();
             }
         });
         updateQuestion();
