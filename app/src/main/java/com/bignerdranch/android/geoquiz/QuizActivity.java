@@ -16,6 +16,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
     private Button mNextButton;
+    private Button mCheatButton;
     private Button mPrevButton;
     private TextView mQuestionTextView;
     private Question[] mQuestionBank = new Question[]{
@@ -76,6 +77,14 @@ public class QuizActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(QuizActivity.this, "This is the 1st question", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        mCheatButton = (Button) findViewById(R.id.cheat_button);
+        mCheatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+// Start CheatActivity
             }
         });
         updateQuestion();
